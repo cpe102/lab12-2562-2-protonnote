@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 
-void stat(const double[],int,double []);
+void stat(const double[],int c,double []);
 
 int main()
 {
@@ -18,3 +18,24 @@ int main()
 }
 
 //Write definition of stat() here 
+void stat(const double A[],int N,double B[]){
+    double max = A[0], min = A[0];
+    float sum,sum1,a;
+    for(int j=0;j<N;j++){
+        if(A[j] > max) {
+            max = A[j];
+            B[2] = max;
+        }
+        if(A[j] < min){
+            min = A[j];
+            B[3] = min;
+        }
+    }
+    for(int i=0;i<N;i++){
+        sum += A[i];
+        sum1 += pow(A[i],2);
+    }
+    B[0] = sum/N;
+    a = sum1/N;
+    B[1] = sqrt(a-pow(sum/N,2));
+}
